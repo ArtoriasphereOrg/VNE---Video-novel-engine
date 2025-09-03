@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VNE Tutorial & Preview</title>
+    <meta name="description" content="Learn to create interactive video novels with the Video Novel Engine (VNE). Follow our step-by-step tutorial and preview an example project to see how it works.">
+    <meta name="keywords" content="Video Novel Engine, VNE, interactive video, video novel tutorial, create video novel, interactive storytelling, multimedia storytelling">
+    <meta name="author" content="ArtoriasphereOrg">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph Meta Tags (for social media sharing) -->
+    <meta property="og:title" content="Video Novel Engine (VNE) Tutorial & Preview">
+    <meta property="og:description" content="Discover how to build interactive video novels using the Video Novel Engine. Explore our tutorial and see a live preview of an example project.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/ArtoriasphereOrg/VNE---Video-novel-engine/refs/heads/main/Untitled%20design.png">
+    <meta property="og:url" content="https://artoriasphereorg.github.io/VNE---Video-novel-engine/Tutorial/index.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Video Novel Engine by ArtoriasphereOrg">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Video Novel Engine (VNE) Tutorial & Preview">
+    <meta name="twitter:description" content="Learn to create interactive video novels with VNE. Check out our tutorial and preview an example project.">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/ArtoriasphereOrg/VNE---Video-novel-engine/refs/heads/main/Untitled%20design.png">
+    <meta name="twitter:site" content="@ArtoriasphereOrg">
+
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/ArtoriasphereOrg/VNE---Video-novel-engine/refs/heads/main/Untitled%20design.png">
+    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/ArtoriasphereOrg/VNE---Video-novel-engine/refs/heads/main/Untitled%20design.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://artoriasphereorg.github.io/VNE---Video-novel-engine/Tutorial/index.html">
+
+    <!-- Additional Meta Tags -->
+    <meta name="theme-color" content="#3b82f6">
+    <meta name="application-name" content="Video Novel Engine">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <style>
+        body {
+            background-color: #f3f4f6;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+        .slide-in {
+            animation: slideIn 0.5s ease-out;
+        }
+        .preview-container:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+        .choice-btn:hover {
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        .step {
+            counter-increment: step-counter;
+        }
+        .step::before {
+            content: "Step " counter(step-counter) ": ";
+            font-weight: bold;
+            color: #1f2937;
+        }
+        .tip {
+            background-color: #e0f2fe;
+            border-left: 4px solid #3b82f6;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 0.375rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans min-h-screen p-4">
+    <div class="bg-white rounded-lg shadow-lg max-w-7xl mx-auto p-6 fade-in">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6 text-center">Video Novel Engine (VNE) Tutorial & Preview</h1>
+        <p class="text-gray-600 mb-6 text-center">Learn how to create interactive video novels using the Video Novel Engine and preview an example project.</p>
+
+        <!-- Tutorial Section -->
+        <div class="space-y-6 counter-reset: step-counter;">
+            <div class="step text-gray-700 slide-in">
+                <h2 class="text-xl font-semibold mb-2">Load a Video</h2>
+                <p>Enter the URL of a video you want to use in the input field labeled "Enter video URL." Ensure the video is hosted on a server that supports CORS (Cross-Origin Resource Sharing) to avoid loading issues. Click the "Load Video" button to display the video.</p>
+                <div class="tip">
+                    <p><strong>Tip:</strong> Use a direct link to a video file (e.g., .mp4) from a public server. YouTube or other streaming service links may not work due to CORS restrictions.</p>
+                </div>
+            </div>
+
+            <div class="step text-gray-700 slide-in">
+                <h2 class="text-xl font-semibold mb-2">Select Key Frames</h2>
+                <p>Use the video player controls to navigate to a specific time in the video. You can drag the slider or enter a precise time in seconds in the "Time (seconds)" input field. Click "Add Time" to mark this point as a key frame where you can add choices, subtitles, or audio.</p>
+                <div class="tip">
+                    <p><strong>Tip:</strong> Choose moments in the video where you want to introduce interactivity, such as decision points or important scenes.</p>
+                </div>
+            </div>
+
+            <div class="step text-gray-700 slide-in">
+                <h2 class="text-xl font-semibold mb-2">Extract Frames</h2>
+                <p>After adding times, click the "Extract Frames" button to generate thumbnail images for each selected time. These thumbnails represent the frames where you can add interactive elements.</p>
+                <div class="tip">
+                    <p><strong>Tip:</strong> If you don’t see frames, ensure the video is loaded correctly and the server supports CORS.</p>
+                </div>
+            </div>
+
+            <div class="step text-gray-700 slide-in">
+                <h2 class="text-xl font-semibold mb你好! 2">Add Choices, Subtitles, or Audio</h2>
+                <p>Click on a frame thumbnail to open a popup where you can add:</p>
+                <ul class="list-disc pl-6">
+                    <li><strong>Choice Text:</strong> Add interactive buttons with text that viewers can click. Choose whether the choice continues the video or links to a website.</li>
+                    <li><strong>Subtitle Text:</strong> Add text to display as subtitles for the frame.</li>
+                    <li><strong>MP3 URL:</strong> Add a link to an audio file (e.g., background music or sound effects) to play at this frame.</li>
+                    <li><strong>Button Styling:</strong> Customize the button’s color (in #hex format), width, height, border radius, and position (top and left in pixels).</li>
+                </ul>
+                <p>Click "Save" to apply your changes or "Cancel" to discard them.</p>
+                <div class="tip">
+                    <p><strong>Tip:</strong> You can add up to 3 choices per frame. Ensure MP3 URLs are valid and accessible.</p>
+                </div>
+            </div>
+
+            <div class="step text-gray-700 slide-in">
+                <h2 class="text-xl font-semibold mb-2">Preview Your Video Novel</h2>
+                <p>Click the "Preview" button to see how your interactive video novel will look. A popup will display the video with your added choices, subtitles, and audio. Use the "Reload" button to refresh the preview if you make changes, or "Close" to exit.</p>
+                <div class="tip">
+                    <p><strong>Tip:</strong> Test all choices to ensure they work as expected (e.g., continue the video or open the correct website).</p>
+                </div>
+            </div>
+
+            <div class="step text-gray-700 slide-in">
+                <h2 class="text-xl font-semibold mb-2">Export Your Project</h2>
+                <p>Click the "Download .vne" button to generate a .vne file containing your video URL, selected times, choices, subtitles, and audio links. This file is encoded and packaged as a ZIP for download.</p>
+                <div class="tip">
+                    <p><strong>Tip:</strong> Save the .vne file in a safe location. You can use it to share or import your project later.</p>
+                </div>
+            </div>
+
+            <div class="step text-gray-700 slide-in">
+                <h2 class="text-xl font-semibold mb-2">Remove Frames or Choices</h2>
+                <p>To remove a frame, click the "Remove" button below its thumbnail or the "×" next to its time in the "Selected times" list. This will also remove any associated choices, subtitles, or audio.</p>
+                <div class="tip">
+                    <p><strong>Tip:</strong> Double-check before removing, as this action cannot be undone.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Preview Section -->
+        <div class="mt-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">Example Previews</h2>
+            <p class="text-gray-600 mb-6 text-center">Below are up to four interactive previews from an example .vne file, demonstrating how your video novel will look with choices, subtitles, and audio.</p>
+            <div id="previewContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4"></div>
+            <div id="errorMessage" class="hidden text-red-600 text-center mt-4"></div>
+        </div>
+
+        <div class="mt-6 text-center">
+            <a href="../index.html" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300">Back to VNE Editor</a>
+        </div>
+    </div>
+
+    <script>
+        const previewContainer = document.getElementById('previewContainer');
+const errorMessage = document.getElementById('errorMessage');
+const vneUrl = 'https://videonovelengine.netlify.app/tutorial/data.vne';
+
+function simpleDecode(str) {
+    let result = '';
+    for (let char of str) {
+        let code = char.charCodeAt(0);
+        if (code >= 32 && code <= 126) {
+            code = ((code - 32 - 5 + 95) % 95) + 32;
+        }
+        result += String.fromCharCode(code);
+    }
+    return result;
+}
+
+function unescapeXML(str) {
+    return str.replace(/&amp;/g, '&')
+             .replace(/&lt;/g, '<')
+             .replace(/&gt;/g, '>')
+             .replace(/&quot;/g, '"')
+             .replace(/&apos;/g, "'");
+}
+
+async function loadVneFile() {
+    try {
+        const response = await fetch(vneUrl);
+        if (!response.ok) {
+            throw new Error('Failed to fetch .vne file. Ensure the URL is accessible.');
+        }
+        const arrayBuffer = await response.arrayBuffer();
+        const zip = await JSZip.loadAsync(arrayBuffer);
+        const encodedXml = await zip.file('data.vne').async('string');
+        const xml = simpleDecode(encodedXml);
+        parseVneXml(xml);
+    } catch (error) {
+        showError(`Error loading .vne file: ${error.message}`);
+    }
+}
+
+function showError(message) {
+    errorMessage.textContent = message;
+    errorMessage.classList.remove('hidden');
+}
+
+function parseVneXml(xml) {
+    try {
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(xml, 'text/xml');
+        const videoUrl = xmlDoc.querySelector('VideoURL')?.textContent;
+        const frames = Array.from(xmlDoc.querySelectorAll('Frame'));
+
+        if (!videoUrl || frames.length === 0) {
+            showError('No video URL or frames found in the .vne file.');
+            return;
+        }
+
+        // Select up to 4 frames for preview
+        const previewFrames = frames.slice(0, 4);
+        previewFrames.forEach((frame, index) => {
+            const time = parseFloat(frame.getAttribute('time'));
+            const subtitle = frame.querySelector('Subtitle')?.textContent;
+            const choices = Array.from(frame.querySelectorAll('Choice')).map(choice => ({
+                text: unescapeXML(choice.querySelector('Text')?.textContent || ''),
+                action: choice.querySelector('Action')?.textContent,
+                url: choice.querySelector('Url')?.textContent,
+                time: parseFloat(choice.querySelector('Time')?.textContent),
+                backgroundButtonColor: choice.querySelector('BackgroundButtonColor')?.textContent || '#16A34A',
+                width: parseInt(choice.querySelector('Width')?.textContent) || null,
+                height: parseInt(choice.querySelector('Height')?.textContent) || null,
+                borderRadius: choice.querySelector('BorderRadius')?.textContent || '8px',
+                top: parseInt(choice.querySelector('Top')?.textContent) || null,
+                left: parseInt(choice.querySelector('Left')?.textContent) || null
+            }));
+
+            createPreview(time, videoUrl, subtitle, choices, index);
+        });
+
+        // Add single "Try Playing" button after all previews
+        const tryPlayingButton = document.createElement('button');
+        tryPlayingButton.className = 'choice-btn bg-blue-600 text-white px-4 py-2 rounded-lg transition duration-300 mt-6 w-full max-w-md mx-auto';
+        tryPlayingButton.textContent = 'Try Playing';
+        tryPlayingButton.onclick = () => {
+            window.location.href = `../gameloader#${vneUrl}`;
+        };
+        previewContainer.parentElement.appendChild(tryPlayingButton);
+    } catch (error) {
+        showError(`Error parsing .vne file: ${error.message}`);
+    }
+}
+
+function createPreview(time, videoUrl, subtitle, choices, index) {
+    const previewDiv = document.createElement('div');
+    previewDiv.className = 'preview-container bg-gray-100 rounded-lg shadow-md p-4 slide-in';
+    previewDiv.style.animationDelay = `${index * 0.1}s`;
+
+    const video = document.createElement('video');
+    video.src = videoUrl;
+    video.crossOrigin = 'anonymous';
+    video.className = 'w-full rounded-lg mb-2';
+    video.currentTime = time;
+    video.muted = true; // Mute by default to avoid multiple videos playing audio
+    video.addEventListener('loadedmetadata', () => {
+        video.currentTime = time;
+    });
+    video.addEventListener('error', () => {
+        showError('Failed to load video. Ensure the video URL supports CORS.');
+    });
+
+    const timeLabel = document.createElement('p');
+    timeLabel.className = 'text-gray-600 text-center mb-2';
+    timeLabel.textContent = `Time: ${time.toFixed(1)}s`;
+
+    previewDiv.appendChild(video);
+    previewDiv.appendChild(timeLabel);
+
+    if (subtitle) {
+        const subtitleElement = document.createElement('p');
+        subtitleElement.className = 'text-gray-500 text-sm text-center mb-2';
+        subtitleElement.textContent = `Subtitle: ${unescapeXML(subtitle)}`;
+        previewDiv.appendChild(subtitleElement);
+    }
+
+    previewContainer.appendChild(previewDiv);
+}
+
+// Load the .vne file on page load
+loadVneFile();
+    </script>
+</body>
+</html>
