@@ -229,7 +229,7 @@ function parseVneXml(xml) {
         tryPlayingButton.className = 'choice-btn bg-blue-600 text-white px-4 py-2 rounded-lg transition duration-300 mt-6 w-full max-w-md mx-auto';
         tryPlayingButton.textContent = 'Try Playing';
         tryPlayingButton.onclick = () => {
-            window.location.href = `./gameloader#${encodeURIComponent(vneUrl)}`;
+            window.location.href = `../gameloader#${encodeURIComponent(vneUrl)}`;
         };
         previewContainer.parentElement.appendChild(tryPlayingButton);
     } catch (error) {
@@ -277,3 +277,4 @@ loadVneFile();
     </script>
 </body>
 </html>
+
